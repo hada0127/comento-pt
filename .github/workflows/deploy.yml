@@ -85,5 +85,5 @@ jobs:
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
           service: comento-pt-nestjs
-          cluster: comento-pt-nestjs
+          cluster: comento-pt
           wait-for-service-stability: false
