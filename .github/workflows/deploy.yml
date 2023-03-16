@@ -11,7 +11,7 @@ env:
 
 jobs:
   test:
-    name: test nestjs
+    name: test comento-pt-nestjs
     runs-on: ubuntu-20.04
 
     steps:
