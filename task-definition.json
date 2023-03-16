@@ -1,41 +1,75 @@
 {
-    "executionRoleArn": "arn:aws:iam::540958016936:role/ecsTaskExecutionRole",
-    "taskRoleArn": "",
+    "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:540958016936:task-definition/comento-pt-nestjs:3",
     "containerDefinitions": [
-      {
-        "image": "",
-        "logConfiguration": {
-          "logDriver": "awslogs",
-          "options": {
-            "awslogs-group": "/ecs/comento-pt-nestjs",
-            "awslogs-region": "ap-northeast-2",
-            "awslogs-stream-prefix": "ecs"
-          }
+        {
+            "name": "comento-pt-nestjs",
+            "image": "540958016936.dkr.ecr.ap-northeast-2.amazonaws.com/comento-pt-nestjs:03920e7c8148065a52b446b541b852c6711b0866",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "containerPort": 3000,
+                    "hostPort": 3000,
+                    "protocol": "tcp"
+                }
+            ],
+            "essential": true,
+            "ulimits": [
+                {
+                    "name": "nofile",
+                    "softLimit": 65535,
+                    "hardLimit": 65535
+                }
+            ],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/comento-pt-nestjs",
+                    "awslogs-region": "ap-northeast-2",
+                    "awslogs-stream-prefix": "ecs"
+                }
+            }
+        }
+    ],
+    "family": "comento-pt-nestjs",
+    "executionRoleArn": "arn:aws:iam::540958016936:role/ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
+    "revision": 3,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
         },
-        "cpu": 0,
-        "portMappings": [
-          {
-            "hostPort": 3000,
-            "protocol": "tcp",
-            "containerPort": 3000
-          }
-        ],
-        "ulimits": [
-          {
-            "name": "nofile",
-            "softLimit": 65535,
-            "hardLimit": 65535
-          }
-        ],
-        "name": "comento-pt-nestjs",
-        "essential": true
-      }
+        {
+            "name": "ecs.capability.execution-role-awslogs"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "ecs.capability.execution-role-ecr-pull"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "ecs.capability.task-eni"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2",
+        "FARGATE"
     ],
     "requiresCompatibilities": [
-      "FARGATE"
+        "FARGATE"
     ],
-    "networkMode": "awsvpc",
     "cpu": "256",
     "memory": "512",
-    "family": "comento-pt-nestjs"
-  }
+    "registeredAt": "2023-03-16T11:25:03.062Z",
+    "registeredBy": "arn:aws:iam::540958016936:user/github",
+    "tags": []
+}
