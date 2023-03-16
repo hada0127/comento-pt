@@ -27,7 +27,7 @@
             "hardLimit": 65535
           }
         ],
-        "name": "nestjs",
+        "name": "comento-pt-nestjs",
         "essential": true
       }
     ],
