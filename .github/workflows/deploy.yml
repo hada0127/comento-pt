@@ -70,7 +70,7 @@ jobs:
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
           task-definition: task-definition.json
-          container-name: comento-pt-nestjs
+          container-name: nestjs
           image: ${{ steps.build-image.outputs.image }}
 
       - name: Configure AWS Credentials
